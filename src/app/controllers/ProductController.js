@@ -104,6 +104,32 @@ class ProductsController {
 
     return response.status(200).json()
   }
+
+  async delete(request, response) {
+    const { admin: isAdmin } = await User.findByPk(request.userId)
+
+    if (!isAdmin) {
+      return response
+        .status(401)
+        .json({ message: 'only admin users are authorized' })
+    }
+
+    const id = request.params.id
+
+    const product = await Product.findByPk(id)
+
+    if (!product) {
+      return response
+        .status(401)
+        .json({ error: 'make sure your product ID is correct' })
+    }
+
+    await Product.destroy({ where: { id } })
+
+    return response.status(200).json({ message: 'Product deleted successfully' })
+  }
 }
+
+
 
 export default new ProductsController()
