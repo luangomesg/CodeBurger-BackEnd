@@ -30,7 +30,7 @@ class ProductsController {
 
     const product = await Product.create({
       name,
-      price,
+      price: Number(price),
       category_id,
       path,
       offer,
