@@ -12,6 +12,8 @@ const upload = multer(multerConfig)
 
 const routes = new Router()
 
+routes.get('/life', UserController.show)
+
 routes.post('/users', UserController.store)
 
 routes.post('/sessions', SessionController.store)

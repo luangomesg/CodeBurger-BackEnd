@@ -1,26 +1,26 @@
 {
   "development": {
     "username": "postgres",
-    "password": "VWYYzNVxiSrIcvPqbJXmgeILWycxVZmw",
-    "database": "railway",
-    "host": "viaduct.proxy.rlwy.net",
+    "password": "cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk",
+    "database": "codeburger",
+    "host": "dpg-cphi8m8cmk4c73eieig0-a",
     "dialect": "postgres",
-    "port": 57201
+    "port": 5432
   },
   "test": {
     "username": "postgres",
-    "password": "VWYYzNVxiSrIcvPqbJXmgeILWycxVZmw",
-    "database": "railway",
-    "host": "viaduct.proxy.rlwy.net",
+    "password": "cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk",
+    "database": "codeburger",
+    "host": "dpg-cphi8m8cmk4c73eieig0-a",
     "dialect": "postgres",
-    "port": 57201
+    "port": 5432
   },
   "production": {
     "username": "postgres",
-    "password": "VWYYzNVxiSrIcvPqbJXmgeILWycxVZmw",
-    "database": "railway",
-    "host": "viaduct.proxy.rlwy.net",
+    "password": "cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk",
+    "database": "codeburger",
+    "host": "dpg-cphi8m8cmk4c73eieig0-a",
     "dialect": "postgres",
-    "port": 57201
+    "port": 5432
   }
 }
