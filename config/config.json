@@ -1,24 +1,24 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk",
-    "database": "codeburger",
+    "username": "luan",
+    "password": "a4GPJQZ56jqBcGZHeoCPr2TktNCjTcsV",
+    "database": "codeburger_014y",
     "host": "dpg-cphi8m8cmk4c73eieig0-a",
     "dialect": "postgres",
     "port": 5432
   },
   "test": {
-    "username": "postgres",
-    "password": "cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk",
-    "database": "codeburger",
+    "username": "luan",
+    "password": "a4GPJQZ56jqBcGZHeoCPr2TktNCjTcsV",
+    "database": "codeburger_014y",
     "host": "dpg-cphi8m8cmk4c73eieig0-a",
     "dialect": "postgres",
     "port": 5432
   },
   "production": {
-    "username": "postgres",
-    "password": "cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk",
-    "database": "codeburger",
+    "username": "luan",
+    "password": "a4GPJQZ56jqBcGZHeoCPr2TktNCjTcsV",
+    "database": "codeburger_014y",
     "host": "dpg-cphi8m8cmk4c73eieig0-a",
     "dialect": "postgres",
     "port": 5432

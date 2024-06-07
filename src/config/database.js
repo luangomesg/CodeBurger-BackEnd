@@ -1,6 +1,6 @@
 module.exports = {
   dialect: 'postgres',
-  url: 'postgres://luan:cPOWr1vLpHazdAW8mCNz7HjuPW6rawmk@dpg-cphi8m8cmk4c73eieig0-a.oregon-postgres.render.com/codeburger',
+  url: 'postgres://luan:a4GPJQZ56jqBcGZHeoCPr2TktNCjTcsV@dpg-cphkidsf7o1s739kfhg0-a.oregon-postgres.render.com/codeburger_014y',
   define: {
     timestamps: true,
     underscored: true,
