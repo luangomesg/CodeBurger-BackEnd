@@ -37,7 +37,7 @@ class UserController {
   }
 
   async show(request, response) {
-    response.json({ message: ok })
+    return response.json({ message: ok })
   }
 }
 
