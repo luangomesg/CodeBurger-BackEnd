@@ -24,7 +24,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      'mongodb://mongo:blNIbbdVaRgjNbxFJZodOkuKybhYIdIw@roundhouse.proxy.rlwy.net:38484',
+      'mongodb://localhost:27017/codeburger',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
