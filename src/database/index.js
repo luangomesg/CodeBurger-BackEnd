@@ -10,7 +10,7 @@ const models = [User, Product, Category]
 class Database {
   constructor() {
     this.init()
-    this.mongo()
+    // this.mongo()
   }
 
   init() {
