@@ -13,7 +13,7 @@ const dirnamePath = dirname(filename);
 class App {
   constructor() {
     this.app = express();
-    this.app.use(cors({ origin: 'code-burger-front-end-one.vercel.app' }));
+    this.app.use(cors({ origin: 'https://code-burger-front-end-one.vercel.app' }));
     this.middlewares();
     this.routes();
   }
