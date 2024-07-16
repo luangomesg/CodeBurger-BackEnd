@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize'
-import configDatabase from '../config/database'
+import { configDatabase } from '../config/database.js'
 import User from '../app/models/User.js'
 import Product from '../app/models/Product.js'
 import Category from '../app/models/Category.js'
@@ -10,11 +10,11 @@ const models = [User, Product, Category]
 class Database {
   constructor() {
     this.init()
-    // this.mongo()
+    this.mongo()
   }
 
   init() {
-    this.connection = new Sequelize('postgres://luan:a4GPJQZ56jqBcGZHeoCPr2TktNCjTcsV@dpg-cphkidsf7o1s739kfhg0-a.oregon-postgres.render.com/codeburger_014y')
+    this.connection = new Sequelize(configDatabase)
     models
       .map((model) => model.init(this.connection))
       .map(
@@ -24,7 +24,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/codeburger',
+      "mongodb+srv://luangomesdv:codeburger123@codeburger.ualxxky.mongodb.net/?retryWrites=true&w=majority&appName=CodeBurger",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
