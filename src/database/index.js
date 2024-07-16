@@ -4,6 +4,9 @@ import User from '../app/models/User.js'
 import Product from '../app/models/Product.js'
 import Category from '../app/models/Category.js'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const models = [User, Product, Category]
 
@@ -24,7 +27,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      "mongodb+srv://luangomesdv:codeburger123@codeburger.ualxxky.mongodb.net/?retryWrites=true&w=majority&appName=CodeBurger",
+      process.env.MONGO_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
