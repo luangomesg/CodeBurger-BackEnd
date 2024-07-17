@@ -1,9 +1,15 @@
-module.exports = {
+const configDatabase = {
   dialect: 'postgres',
-  url: 'postgresql://postgres:VWYYzNVxiSrIcvPqbJXmgeILWycxVZmw@viaduct.proxy.rlwy.net:57201/railway',
+  host: 'localhost',
+  port: 5432,
+  database: 'codeburger',
+  username: 'postgres',
+  password: 'postgres',
   define: {
     timestamps: true,
     underscored: true,
-    underscoredAll: true,
+    underscoredAll: true
   },
 }
+
+export default configDatabase
