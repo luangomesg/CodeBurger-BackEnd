@@ -4,8 +4,10 @@ import Product from '../app/models/Product.js'
 import Category from '../app/models/Category.js'
 import mongoose from 'mongoose'
 import configDatabase from '../config/database.js'
+import dotenv from 'dotenv'
 
 const models = [User, Product, Category]
+dotenv.config()
 
 class Database {
   constructor() {
@@ -24,7 +26,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      'mongodb+srv://luangomesdv:codeburger123@codeburger.ualxxky.mongodb.net/?retryWrites=true&w=majority&appName=CodeBurger',
+      process.env.MONGO_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
