@@ -1,6 +1,4 @@
 import { Router } from 'express';
-import express from 'express';
-import path from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
 import authMiddleware from './app/middlewares/auth.js';
@@ -16,16 +14,14 @@ const routes = new Router();
 
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-
-routes.use('/product-file', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 // Rotas públicas
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-
+// Middleware de autenticação aplicado a partir deste ponto
+routes.use(authMiddleware);
 
 // Rotas protegidas
 routes.post('/products', upload.single('file'), ProductController.store);
