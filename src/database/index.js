@@ -1,14 +1,14 @@
-import Sequelize from 'sequelize'
-import { configDatabase } from '../config/database.js'
-import User from '../app/models/User.js'
-import Product from '../app/models/Product.js'
-import Category from '../app/models/Category.js'
-import mongoose from 'mongoose'
+import Sequelize from "sequelize"
+// import configDatabase from "../config/database"
+import mongoose from "mongoose"
 import dotenv from 'dotenv'
-
-dotenv.config()
+import User from "../app/models/User.js"
+import Product from "../app/models/Product.js"
+import Category from "../app/models/Category.js"
+import configDatabase from "../config/database.cjs"
 
 const models = [User, Product, Category]
+dotenv.config()
 
 class Database {
   constructor() {
@@ -21,7 +21,7 @@ class Database {
     models
       .map((model) => model.init(this.connection))
       .map(
-        (model) => model.associate && model.associate(this.connection.models),
+        (model) => model.associate && model.associate(this.connection.models)
       )
   }
 
@@ -31,7 +31,7 @@ class Database {
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-      },
+      }
     )
   }
 }

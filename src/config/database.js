@@ -1,15 +1,23 @@
-
-const configDatabase = {
-  dialect: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  database: 'codeburger',
-  username: 'postgres',
-  password: 'postgres',
-  define: {
-    timestamps: true,
-    underscored: true,
-  }
+module.exports = {
+  development: {
+    username: 'postgres',
+    password: 'postgres',
+    database: 'codeburger',
+    host: 'localhost',
+    dialect: 'postgres',
+  },
+  test: {
+    username: 'postgres',
+    password: 'postgres',
+    database: 'codeburger',
+    host: 'localhost',
+    dialect: 'postgres',
+  },
+  production: {
+    username: 'postgres',
+    password: 'postgres',
+    database: 'codeburger',
+    host: 'localhost',
+    dialect: 'postgres',
+  },
 };
-
-export { configDatabase }; 

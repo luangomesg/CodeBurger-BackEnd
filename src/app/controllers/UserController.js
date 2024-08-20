@@ -1,6 +1,7 @@
-import { v4 } from 'uuid'
-import User from '../models/User.js'
-import * as Yup from 'yup'
+import { v4 } from "uuid"
+import * as Yup from "yup"
+
+import User from "../models/User.js"
 
 class UserController {
   async store(request, response) {
@@ -11,6 +12,12 @@ class UserController {
       admin: Yup.boolean(),
     })
 
+    // if (!(await schema.isValid(request.body))) {
+    //   return response
+    //     .status(400)
+    //     .json({ error: "Make sure is your data is correct" })
+    // }
+
     try {
       await schema.validateSync(request.body, { abortEarly: false })
     } catch (err) {
@@ -19,25 +26,22 @@ class UserController {
 
     const { name, email, password, admin } = request.body
 
-    const userExists = await User.findOne({ where: { email } })
+    const userExists = await User.findOne({
+      where: { email },
+    })
+
     if (userExists) {
-      return response.status(409).json({ error: 'User already exists' })
+      return response.status(409).json({ error: "This user already exists" })
     }
-    const user = {
+
+    const user = await User.create({
       id: v4(),
       name,
       email,
       password,
       admin,
-    }
-
-    await User.create(user)
-
+    })
     return response.status(201).json({ id: user.id, name, email, admin })
-  }
-
-  async show(request, response) {
-    return response.json({ message: 'ok' })
   }
 }
 

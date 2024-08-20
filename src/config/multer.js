@@ -1,18 +1,14 @@
-import multer from 'multer';
-import { v4 } from 'uuid';
-import { extname, resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import multer from "multer"
+import { v4 } from "uuid"
+import { extname, resolve, dirname } from "path"
 
-const filename = fileURLToPath(import.meta.url);
-const dirnamePath = dirname(filename);
+const __dirname = resolve(dirname(''))
 
-const multerConfig = {
+export default {
   storage: multer.diskStorage({
-    destination: resolve(dirnamePath, '..', '..', 'uploads'),
+    destination: resolve(__dirname, "..", "..", "uploads"),
     filename: (request, file, callback) => {
-      return callback(null, v4() + extname(file.originalname));
+      callback(null, v4() + extname(file.originalname))
     },
   }),
-};
-
-export default multerConfig;
+}

@@ -1,6 +1,4 @@
-const authConfig = {
-  secret: '6521892f4ffd14e87ab89fad8e1c53d6',
-  expiresIn: '3d',
+export default {
+  secret: "3cb9a9877808799754edd99facf43569",
+  expiresIn: "5d",
 }
-
-export default authConfig

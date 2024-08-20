@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
-const OrderSchema = new mongoose.Schema(
+const orderEschema = new mongoose.Schema(
   {
     user: {
       id: {
@@ -47,7 +47,7 @@ const OrderSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 )
 
-export default mongoose.model('Order', OrderSchema)
+export default mongoose.model("Order", orderEschema)
