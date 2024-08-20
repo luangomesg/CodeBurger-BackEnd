@@ -1,8 +1,8 @@
-import * as Yup from "yup"
-import Product from "../models/Product.js"
-import Category from "../models/Category.js"
-import Order from "../schemas/Order.js"
-import User from "../models/User.js"
+import * as Yup from 'yup'
+import Product from '../models/Product'
+import Category from '../models/Category'
+import Order from '../schemas/Order'
+import User from '../models/User'
 
 class OrderController {
   async store(request, response) {
@@ -17,37 +17,32 @@ class OrderController {
         ),
     })
 
-    // if (!(await schema.isValid(request.body))) {
-    //   return response
-    //     .status(400)
-    //     .json({ error: "Make sure is your data is correct" })
-    // }
-
     try {
       await schema.validateSync(request.body, { abortEarly: false })
     } catch (err) {
       return response.status(400).json({ error: err.errors })
     }
 
-    const productId = request.body.products.map((product) => product.id)
+    const productsId = request.body.products.map((product) => product.id)
 
-    const updateProducts = await Product.findAll({
+    const updatedProducts = await Product.findAll({
       where: {
-        id: productId,
+        id: productsId,
       },
       include: [
         {
           model: Category,
-          as: "category",
-          attributes: ["name"],
+          as: 'category',
+          attributes: ['name'],
         },
       ],
     })
 
-    const editedProduct = updateProducts.map((product) => {
+    const editedProduct = updatedProducts.map((product) => {
       const productIndex = request.body.products.findIndex(
         (requestProduct) => requestProduct.id === product.id
       )
+
       const newProduct = {
         id: product.id,
         name: product.name,
@@ -56,13 +51,17 @@ class OrderController {
         url: product.url,
         quantity: request.body.products[productIndex].quantity,
       }
+
       return newProduct
     })
 
     const order = {
-      user: { id: request.userId, name: request.userName },
+      user: {
+        id: request.userId,
+        name: request.userName,
+      },
       products: editedProduct,
-      status: "Pedido Realizado",
+      status: 'Pedido realizado',
     }
 
     const orderResponse = await Order.create(order)
@@ -90,7 +89,7 @@ class OrderController {
     const { admin: isAdmin } = await User.findByPk(request.userId)
 
     if (!isAdmin) {
-      return response.status(400).json({ message: "User is not Admin" })
+      return response.status(401).json()
     }
 
     const { id } = request.params
@@ -102,7 +101,7 @@ class OrderController {
       return response.status(400).json({ error: error.message })
     }
 
-    return response.json({ message: "Status updated successfuly" })
+    return response.json({ message: 'Status updated sucessfully' })
   }
 }
 
