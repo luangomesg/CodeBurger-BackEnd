@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import multer from 'multer';
 import authMiddleware from './app/middlewares/auth.js';
 import multerConfig from './config/multer.js';
@@ -12,6 +13,9 @@ import OrderController from './app/controllers/OrderController.js';
 
 const upload = multer(multerConfig);
 const routes = new Router();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Rota para servir arquivos públicos (imagens dos produtos)
 routes.use('/product-file', express.static(path.resolve(__dirname, '..', 'uploads')));
