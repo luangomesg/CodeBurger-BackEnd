@@ -18,9 +18,9 @@ class ProductController {
       return response.status(400).json({ error: err.errors })
     }
 
-    const { admin: isAdmin } = await User.findByPk(request.userId)
+    const isAdmin = await User.findByPk(request.userId)
 
-    if (!isAdmin) {
+    if (!isAdmin.admin) {
       return response.status(401).json({ message: "unauthorized user" })
     }
 
