@@ -14,32 +14,30 @@ import OrderController from './app/controllers/OrderController.js';
 const upload = multer(multerConfig);
 const routes = new Router();
 
-// Obtém o diretório atual
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Rota para servir arquivos públicos (imagens dos produtos)
+
 routes.use('/product-file', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 // Rotas públicas
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-// Middleware de autenticação aplicado a partir deste ponto
-routes.use(authMiddleware);
 
 // Rotas protegidas
 routes.post('/products', upload.single('file'), ProductController.store);
-routes.get('/products', ProductController.index);
+routes.get('/products', authMiddleware, ProductController.index);
 routes.put('/products/:id', upload.single('file'), ProductController.update);
-routes.delete('/products/:id', ProductController.delete);
+routes.delete('/products/:id', authMiddleware, ProductController.delete);
 
 routes.post('/categories', upload.single('file'), CategoryController.store);
-routes.get('/categories', CategoryController.index);
+routes.get('/categories', authMiddleware, CategoryController.index);
 routes.put('/categories/:id', upload.single('file'), CategoryController.update);
 
-routes.post('/orders', OrderController.store);
-routes.get('/orders', OrderController.index);
-routes.put('/orders/:id', OrderController.update);
+routes.post('/orders', authMiddleware, OrderController.store);
+routes.get('/orders', authMiddleware, OrderController.index);
+routes.put('/orders/:id', authMiddleware, OrderController.update);
 
 export default routes;
