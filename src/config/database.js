@@ -7,7 +7,7 @@ const configDatabase = {
       rejectUnauthorized: false // Para ambientes de desenvolvimento, pode ser necessário desativar a verificação de certificado
     }
   },
-  url: 'postgresql://luan:OKeO7ZZZxbTq9gRGgIqXIn1Tc0zYd91x@dpg-cqbhikggph6c73c0j1sg-a/codeburger_1m2g',
+  url: 'postgresql://luan_kyu1_user:pSycvwIWQYQXBInpwwezAqvmB7JyHOtU@dpg-cr29nftsvqrc73cld4r0-a/luan_kyu1',
   define: {
     timestamps: true,
     underscored: true,
