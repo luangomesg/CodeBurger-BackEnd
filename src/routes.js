@@ -14,6 +14,7 @@ import OrderController from './app/controllers/OrderController.js';
 const upload = multer(multerConfig);
 const routes = new Router();
 
+// Obtém o diretório atual
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
