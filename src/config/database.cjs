@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     username: 'luan_kyu1_user',
-    password: 'postgresql://luan_kyu1_user:pSycvwIWQYQXBInpwwezAqvmB7JyHOtU@dpg-cr29nftsvqrc73cld4r0-a/luan_kyu1',
+    password: 'pSycvwIWQYQXBInpwwezAqvmB7JyHOtU',
     database: 'luan_kyu1',
     host: 'dpg-cr29nftsvqrc73cld4r0-a',
     dialect: 'postgres',
@@ -9,7 +9,7 @@ module.exports = {
   },
   test: {
     username: 'luan_kyu1_user',
-    password: 'postgresql://luan_kyu1_user:pSycvwIWQYQXBInpwwezAqvmB7JyHOtU@dpg-cr29nftsvqrc73cld4r0-a/luan_kyu1',
+    password: 'pSycvwIWQYQXBInpwwezAqvmB7JyHOtU',
     database: 'luan_kyu1',
     host: 'dpg-cr29nftsvqrc73cld4r0-a',
     dialect: 'postgres',
@@ -17,7 +17,7 @@ module.exports = {
   },
   production: {
     username: 'luan_kyu1_user',
-    password: 'postgresql://luan_kyu1_user:pSycvwIWQYQXBInpwwezAqvmB7JyHOtU@dpg-cr29nftsvqrc73cld4r0-a/luan_kyu1',
+    password: 'pSycvwIWQYQXBInpwwezAqvmB7JyHOtU',
     database: 'luan_kyu1',
     host: 'dpg-cr29nftsvqrc73cld4r0-a',
     dialect: 'postgres',
