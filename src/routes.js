@@ -13,15 +13,12 @@ const upload = multer(multerConfig);
 const routes = new Router();
 
 
-const __filename = fileURLToPath(import.meta.url);
-
-
 // Rotas públicas
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
 // Middleware de autenticação aplicado a partir deste ponto
-routes.use(authMiddleware);
+
 
 // Rotas protegidas
 routes.post('/products', upload.single('file'), ProductController.store);
