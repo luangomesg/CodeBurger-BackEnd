@@ -18,11 +18,7 @@ class ProductController {
       return response.status(400).json({ error: err.errors })
     }
 
-    const isAdmin = await User.findByPk(request.userId)
 
-    if (!isAdmin.admin) {
-      return response.status(401).json({ message: "unauthorized user" })
-    }
 
     const { filename: path } = request.file
     const { name, price, category_id, offer } = request.body
